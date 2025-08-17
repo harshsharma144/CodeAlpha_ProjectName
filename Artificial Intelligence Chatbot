@@ -1,0 +1,47 @@
+
+import java.util.Scanner;
+class Chatbot{
+    String getResponse(String input){
+        input = input.toLowerCase();
+        if(input.contains("hello")||input.contains("hi")){
+            return "Hello! How can i assist you today? \n";
+        }
+        else if (input.contains("your name")){
+            return "I am your friendly chatbot! \n";
+        }
+        else if (input.contains("how are you")){
+            return "I am just code, but i am functionoig well! \n";
+        }
+        else if (input.contains("bye")){
+            return "Goodbye! Have a great day! \n";
+        }
+        else if (input.contains("help")){
+            return "I am sorry, i did not understand that can you rephrase ? \n";
+        }
+    //default response if no condition met
+    return "Sorry, I did not get that. Can you try again? \n";
+    }
+}
+
+
+public class AIbotDemo {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Chatbot bot = new Chatbot();
+        System.out.println("Welcome to AI chatbot(type 'bye' to exit);");
+        while (true) {
+            System.out.print("You: ");
+            String userInput = input.nextLine();
+            if(userInput.equalsIgnoreCase("bye")){
+                System.out.print("Bot: "+bot.getResponse(userInput));
+                break;
+            }
+            String response = bot.getResponse(userInput);
+            System.out.print("Bot: "+response); 
+            
+        }
+    }
+        
+}
+
+
